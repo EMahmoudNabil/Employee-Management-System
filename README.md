@@ -2,14 +2,14 @@
 
 A modern, full-stack web application for managing employee data, attendance, and daily operations with role-based access control.
 
-![Employee Management System](https://via.placeholder.com/800x400?text=Employee+Management+System)
+
 
 ## 📋 Project Description
 
 The Employee Management System is a comprehensive solution designed to streamline HR operations and employee management. It provides a secure, user-friendly interface for both administrators and employees to manage their daily tasks and information.
 
-### Demo
-![Demo](https://youtu.be/8OlIHz80TSk)
+### Project Demo
+🚀 ![ Project Demo ](https://youtu.be/8OlIHz80TSk)
 
 ### Key Features
 
