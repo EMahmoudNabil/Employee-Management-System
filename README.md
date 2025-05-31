@@ -13,30 +13,36 @@ The Employee Management System is a comprehensive solution designed to streamlin
 
 ### Key Features
 
-- 🔐 **Secure Authentication & Authorization**
-  - JWT-based authentication
-  - Role-based access control (Admin & Employee roles)
-  - Secure password hashing and token management
+### 🔐 Secure Authentication & Authorization
+- JWT-based token authentication
+- Role-based access control: **Admin** & **Employee**
+- Passwords hashed securely with token lifecycle management
 
-- 👥 **Employee Management**
-  - Complete CRUD operations for employee profiles
-  - Employee information management
-  - Profile updates and maintenance
+### 👥 Employee Management (Admin)
+- Add, edit, and delete employee profiles with full CRUD operations
+- Required fields: First Name, Last Name, Phone Number, National ID, Age, and optional Signature
+- Interactive employee listing: pagination, sorting, filtering
+- User feedback on operations (e.g., confirmations, error toasts)
 
-- ⏰ **Attendance System**
-  - Daily check-in functionality
-  - Time-restricted attendance tracking
-  - Attendance history and reports
+### ⏰ Attendance Tracking
+- Employees check in once daily between **7:30 AM - 9:00 AM**
+- Prevents duplicate check-ins and gives informative messages
+- Admin can view all daily attendance and **weekly work hours**
+- Attendance history log with summaries and trends 
 
-- ✍️ **Digital Signature**
-  - Signature upload and management
-  - Document signing capabilities
-  - Signature verification
-
-- 🎨 **Modern UI/UX**
+### ✍️ Digital Signature Support
+- Signature can be uploaded or drawn during or after registration
+- Used for verification and secure documentation
+- 
+### 👨‍💼 Employee Portal
+- View and update personal profile
+- Access weekly check-in history
+- Upload signature if not set by admin
+- Clean and responsive UI design
+### 🎨 Modern UI/UX
   - Responsive design for all devices
   - Clean and intuitive interface
-  - Real-time updates and notifications
+ 
 
 ## 🛠️ Tech Stack
 
@@ -45,15 +51,13 @@ The Employee Management System is a comprehensive solution designed to streamlin
 - Entity Framework Core
 - SQL Server
 - JWT Authentication
-- Swagger/OpenAPI
+- Swagger
 
 ### Frontend
 - Angular 17
 - TypeScript
-- Angular Material
-- RxJS
-- NgRx (State Management)
-- SCSS
+- BootStrap
+- CSS
 
 ### Development Tools
 - Visual Studio 2022
@@ -152,25 +156,21 @@ The application will be available at `http://localhost:4200`
 - EmployeeId (FK)
 - CheckInTime
 - CheckOutTime
-- Date
+- NumberOfHour
 
 
 ## 👮‍♂️ Roles and Permissions
 
-### Admin Role
-- Manage all employee records
-- View and generate reports
-- Manage user roles and permissions
-- Access system settings
-- View attendance records
-- Manage departments and positions
+👨‍💼 Admin
+-Manage employee data (CRUD)
+-View attendance records
+-Handle roles and permissions
+-System settings management
 
-### Employee Role
-- View and update personal information
-- Record daily attendance
-- Upload and manage signature
-- View personal attendance history
-- Access basic employee information
+👷 Employee
+- Check-in once daily within allowed time and check out
+- View personal profile and attendance history
+- Upload or draw signature if needed
 
 ## 📸 Screenshots
 ### Architecture Backend
@@ -201,8 +201,6 @@ The application will be available at `http://localhost:4200`
 - Email: e.mahmoudnabil@gmail.com
 - GitHub: https://github.com/EMahmoudNabil
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
  
