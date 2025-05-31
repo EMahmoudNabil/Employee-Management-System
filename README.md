@@ -196,7 +196,7 @@ The application will be available at `http://localhost:4200`
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Mahmoud Nabil**
 - LinkedIn: https://www.linkedin.com/in/emahmoudnabil/
 - Email: e.mahmoudnabil@gmail.com
 - GitHub: https://github.com/EMahmoudNabil
@@ -205,7 +205,4 @@ The application will be available at `http://localhost:4200`
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who have helped shape this project
-- Special thanks to the open-source community for their invaluable tools and libraries 
+ 
