@@ -173,10 +173,10 @@ The application will be available at `http://localhost:4200`
 - Access basic employee information
 
 ## 📸 Screenshots
-### Structure Backend
+### Architecture Backend
 ![Structure Backend](image.png)
 
-### Structure FrontEnd 
+### Architecture FrontEnd 
 ![Structure FrontEnd ](image-1.png)
 
 ### EndPoint 
