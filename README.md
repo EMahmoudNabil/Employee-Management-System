@@ -162,10 +162,10 @@ The application will be available at `http://localhost:4200`
 ## 👮‍♂️ Roles and Permissions
 
 👨‍💼 Admin
--Manage employee data (CRUD)
--View attendance records
--Handle roles and permissions
--System settings management
+- Manage employee data (CRUD)
+- View attendance records
+- Handle roles and permissions
+- System settings management
 
 👷 Employee
 - Check-in once daily within allowed time and check out
