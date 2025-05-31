@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{ employee ? 'Edit Employee' : 'Add Employee' }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="submit()" class="modal-body needs-validation" novalidate>
+  
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="email" class="form-control" formControlName="email" [readonly]="isEdit">
+      </div>
+  
+      <div class="col-md-6" *ngIf="!isEdit">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password">
+      </div>
+  
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input id="firstName" type="text" class="form-control" formControlName="firstName">
+      </div>
+  
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input id="lastName" type="text" class="form-control" formControlName="lastName">
+      </div>
+  
+      <div class="col-md-6">
+        <label for="nationalId" class="form-label">National ID</label>
+        <input id="nationalId" type="text" class="form-control" formControlName="nationalId">
+      </div>
+  
+      <div class="col-md-3">
+        <label for="age" class="form-label">Age</label>
+        <input id="age" type="number" class="form-control" formControlName="age">
+      </div>
+  
+      <div class="col-md-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber">
+      </div>
+  
+      <div class="col-12">
+        <label class="form-label">Signature</label>
+        <div class="d-flex flex-column align-items-center">
+          <div *ngIf="signaturePreview" class="mb-2 text-center">
+            <img [src]="signaturePreview" alt="Signature Preview" class="img-fluid border rounded" style="max-height: 150px;">
+            <button type="button" class="btn btn-sm btn-outline-danger mt-2" (click)="removeSignature()">Remove</button>
+          </div>
+          <div *ngIf="!signaturePreview" class="text-center">
+            <label class="btn btn-outline-primary">
+              Upload Signature
+              <input type="file" accept="image/*" hidden (change)="onSignatureSelected($event)">
+            </label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6" *ngIf="!isEdit">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" class="form-select" formControlName="role" required>
+          <option value="">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Employee">Employee</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="modal-footer mt-4">
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+        <i class="bi bi-check-circle me-1"></i> Save
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="close()">
+        <i class="bi bi-x-circle me-1"></i> Cancel
+      </button>
+    </div>
+  </form>
+  

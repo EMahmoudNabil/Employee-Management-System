@@ -1,0 +1,58 @@
+<div class="attendance-container">
+    <div class="attendance-card">
+      <h2 class="text-center mb-4">Attendance Management</h2>
+  
+      <!-- Check-in/Check-out Section -->
+      <div class="attendance-actions mb-4">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="check-in-section text-center">
+              <button (click)="checkIn()" 
+                      [disabled]="isCheckedIn || loading" 
+                      class="btn btn-primary w-100">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                {{ isCheckedIn ? 'Already Checked In' : 'Check In' }}
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="check-out-section text-center">
+              <button (click)="checkOut()"
+                      [disabled]="!isCheckedIn || isCheckedOut || loading"
+                      class="btn btn-danger w-100">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                {{ isCheckedOut ? 'Already Checked Out' : 'Check Out' }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="checkInError" class="error-message text-center mt-2">
+          {{ checkInError }}
+        </div>
+      </div>
+  
+      <!-- Attendance History -->
+      <div class="history-section">
+        <h4 class="mb-3">Attendance History</h4>
+        <div *ngIf="loading" class="text-center my-3">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="attendance-list" *ngIf="!loading && attendanceHistory.length">
+          <div class="attendance-item" *ngFor="let record of attendanceHistory">
+            <div class="date">{{ record.checkInTime | date:'mediumDate' }}</div>
+            <div class="time">
+              <span>Check-in: {{ record.checkInTime | date:'shortTime' }}</span>
+              <span *ngIf="record.checkOutTime">Check-out: {{ record.checkOutTime | date:'shortTime' }}</span>
+            </div>
+            <div class="hours">Working Hours: {{ record.workingHours || 'N/A' }}</div>
+          </div>
+        </div>
+        <div class="no-records" *ngIf="!loading && !attendanceHistory.length">
+          No attendance records found
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,71 @@
+<div class="container py-4">
+
+    <!-- Profile Card -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Welcome, {{ profile?.profile?.firstName || 'Guest' }}!</h3>
+  
+        <div class="row g-4">
+          <!-- Profile Info -->
+          <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Email:</strong> {{ profile?.profile?.email ?? 'N/A' }}</li>
+              <li class="list-group-item"><strong>Phone:</strong> {{ profile?.profile?.phoneNumber ?? 'N/A' }}</li>
+              <li class="list-group-item"><strong>National ID:</strong> {{ profile?.profile?.nationalId ?? 'N/A' }}</li>
+              <li class="list-group-item"><strong>Age:</strong> {{ profile?.profile?.age ?? 'N/A' }}</li>
+            </ul>
+          </div>
+  
+          <!-- Signature -->
+          <div class="col-md-6 text-center">
+            <div *ngIf="profile?.profile?.signature; else noSignature">
+              <p><strong>Signature:</strong></p>
+              <img [src]="profile?.profile?.signature" alt="Signature" class="img-fluid border rounded" style="max-height: 150px;">
+            </div>
+            <ng-template #noSignature>
+              <p class="text-muted">No signature uploaded.</p>
+              <label class="btn btn-outline-primary mt-2">
+                Upload Signature
+                <input type="file" accept="image/*" hidden (change)="onSignatureSelected($event)">
+              </label>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Attendance Card -->
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title">Weekly Attendance</h4>
+  
+        <div *ngIf="profile?.weeklyAttendance?.length; else noRecords">
+          <div class="table-responsive mt-3">
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th>Date</th>
+                  <th>Check-in</th>
+                  <th>Check-out</th>
+                  <th>Working Hours</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let record of profile?.weeklyAttendance">
+                  <td>{{ record.checkInTime | date:'fullDate' }}</td>
+                  <td>{{ record.checkInTime | date:'shortTime' }}</td>
+                  <td>{{ record.checkOutTime ? (record.checkOutTime | date:'shortTime') : '—' }}</td>
+                  <td>{{ record.workingHours || 'N/A' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <ng-template #noRecords>
+          <p class="text-muted mt-3">No attendance records found.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
